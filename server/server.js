@@ -26,7 +26,7 @@ app.use(cors({
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
-    res.status(200).send('erver is running...');
+    res.status(200).send('server is running...');
 });
 app.use('/api/admin', adminRouter);
 app.use('/api/employee', employeeRouter);
