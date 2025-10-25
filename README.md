@@ -5,7 +5,7 @@ A RESTful API built with **Node.js, Express, and MongoDB** to manage employees, 
 ## Live Deployment and API Testing Links
 
 * Backend & API: [https://employee-task-management-kohl.vercel.app](https://employee-task-management-kohl.vercel.app)
-* API Testing Guide (Postman collection / Documentation): [Drive Link](https://drive.google.com/file/d/1PGrDlSnbfLp2E_umNMAquipFVoJpWRWi/view?usp=drive_link)
+* API Testing Guide (Postman collection / Documentation): [Drive Link](https://drive.google.com/file/d/1xUAIZNuBKgzYp6OeYdyE7fmfsJvrl9-T/view?usp=sharing)
 
 ---
 
@@ -182,7 +182,3 @@ Key updates in the current implementation:
 * Server is deployed using **Vercel serverless functions**
 
 ---
-
-If you want, I can also **add a small section with example JSON payloads for tasks and chat messages** so anyone can immediately test the API. This makes the README much more user-friendly.
-
-Do you want me to add that?
