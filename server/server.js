@@ -20,8 +20,10 @@ await connectDB();
 
 app.use(express.json({ limit: '4mb' }));
 app.use(cors({
-    origin: '*',
-    credentials: true
+    origin: process.env.FRONTEND_URL, 
+    credentials: true, 
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use(cookieParser());
 
@@ -34,7 +36,7 @@ app.use('/api/chat', chatRouter);
 
 const io = new Server(server, {
     cors: {
-        origin: '*',
+        origin: process.env.FRONTEND_URL,
         methods: ['GET', 'POST'],
         credentials: true
     }
