@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
 import User from "../models/User.js";
 import Task from "../models/Task.js";
 import { io, userSocketMap } from '../socketStore.js'
@@ -74,13 +73,16 @@ export const findEmployee = async (req, res) => {
 export const findEmployeeById = async (req, res) => {
     try {
         const { id } = req.params;
-        const employee = await User.findById(id).select("-password");
 
+        const employee = await User.findById(id).select("-password");
         if (!employee || employee.role !== "employee") {
             return res.status(404).json({ message: "Employee not found" });
         }
 
-        res.status(200).json(employee);
+        // Fetch tasks assigned to this employee
+        const tasks = await Task.find({ assignedTo: id });
+
+        res.status(200).json({ ...employee.toObject(), tasks });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Server error" });
